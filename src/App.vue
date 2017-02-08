@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    // CncnHeader,CncnMenu
+  },
+  watch: {
+    '$route'(to, from) {//监听路由改变
+      let user = sessionStorage.getItem('user');
+      if (!user) {
+        this.$router.replace('/login')
+      }
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="less">
+  @import "./less/style.less";
+  body{
+    background-color: #f1f1f1;
+  }
+  
 </style>
