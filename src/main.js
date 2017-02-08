@@ -8,6 +8,8 @@ import './element-ui'
 import Router from './router'
 import Store from './store'
 
+import './less/style.less'
+
 /* eslint-disable no-new */
 
 const app = new Vue({

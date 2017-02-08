@@ -23,12 +23,4 @@
 </script>
 <style lang="less">
   //
-  .cncn-main-panel{
-    p{
-      text-align: center;
-    }
-  }
-  .cncn-main{
-    margin: 90px 30px 30px 260px;
-  }
 </style>

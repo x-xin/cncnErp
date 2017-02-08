@@ -23,9 +23,5 @@ export default {
 </script>
 
 <style lang="less">
-  @import "./less/style.less";
-  body{
-    background-color: #f1f1f1;
-  }
-  
+//  
 </style>

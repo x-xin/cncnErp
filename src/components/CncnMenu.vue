@@ -39,12 +39,5 @@
 </script>
 <style lang="less">
   //
-  .cncn-menu{
-    width: 230px;
-    height: 100%;
-    background-color: #324057;
-    position: fixed;
-    top: 60px;
-    left: 0;
-  }
+  
 </style>

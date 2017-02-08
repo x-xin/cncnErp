@@ -48,24 +48,11 @@
     }
   }
 </script>
-<style lang="less">
-  .cncn-header{
-    width: 100%;
-    height: 60px;
-    line-height: 60px;
-    background: #1f2d3d;
-    color: #c0ccda;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 4;
-
-    .logo{
-      margin-left: 20px;
-    }
-    .loginout{
-      color: #fff;
-    }
+<style lang="less" scoped>
+  .logo{
+    margin-left: 20px;
+  }
+  .loginout{
+    color: #fff;
   }
 </style>

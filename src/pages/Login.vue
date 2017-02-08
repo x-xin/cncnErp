@@ -67,7 +67,7 @@
     }
   }
 </script>
-<style lang="less">
+<style lang="less" scoped>
   //
   .login-form{
     width: 350px;
