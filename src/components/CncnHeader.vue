@@ -1,22 +1,20 @@
 <template>
-  <div class="cncn-header">
-    <el-row>
-      <el-col :span="20"><div class="logo">CNCNERP@jingdian.com</div></el-col>
-      <el-col :span="4">
-        <el-dropdown trigger="click">
-          <span class="el-dropdown-link loginout">
-            {{ sysUserName }}
-            <i class="el-icon-caret-bottom el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>设置</el-dropdown-item>
-            <el-dropdown-item>我的消息</el-dropdown-item>
-            <el-dropdown-item divided @click.native="loginout">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </el-col>
-    </el-row>
-  </div>
+  <el-row class="cncn-header">
+    <el-col :span="20"><div class="logo">CNCNERP@jingdian.com</div></el-col>
+    <el-col :span="4">
+      <el-dropdown trigger="click">
+        <span class="el-dropdown-link loginout">
+          {{ sysUserName }}
+          <i class="el-icon-caret-bottom el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>设置</el-dropdown-item>
+          <el-dropdown-item>我的消息</el-dropdown-item>
+          <el-dropdown-item divided @click.native="loginout">退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+    </el-col>
+  </el-row>
 </template>
 <script>
   export default {

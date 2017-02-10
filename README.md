@@ -5,7 +5,7 @@
 ## Technology Stack
 
 ```
- vue vuex vue-router less mockjs axios element-ui
+ vue vuex vue-router less express mockjs axios element-ui
 ```
 
 ## Build Setup
