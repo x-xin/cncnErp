@@ -35,7 +35,6 @@
     }
   }
 </script>
-<style lang="less">
+<style lang="stylus">
   //
-  
 </style>

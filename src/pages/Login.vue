@@ -9,7 +9,7 @@
     </el-form-item>
     <el-checkbox v-model="checked" checked class="memory-pass">记住密码</el-checkbox>
     <el-form-item>
-      <el-button type="primary" class="login-btn" @click.native.prevent="handleSubmit">登录</el-button>
+      <el-button type="primary" class="login-btn" @click.native.prevent="handleSubmit" v-loading="loading">登录</el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -32,7 +32,8 @@
             { required: true, message: '请输入密码', trigger: 'blur' }
           ]
         },
-        checked: true
+        checked: true,
+        loading: false
       }
     },
     methods: {
@@ -43,8 +44,10 @@
               username: this.loginForm.account,
               password: this.loginForm.checkPass
             }
+            this.loading = true
             requestLogin(loginParams).then(data => {
               console.log(data);
+              this.loading = false
               if(data.code !== 1){
                 this.$notify({
                   title: '错误',
@@ -67,27 +70,23 @@
     }
   }
 </script>
-<style lang="less" scoped>
-  //
-  .login-form{
-    width: 350px;
-    margin: 180px auto;
-    padding: 30px;
-    background-color: #F9FAFC;
-    border-radius: 5px;
-    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
-    .title{
-      margin-bottom: 40px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .memory-pass{
-      margin-bottom: 30px;
-    }
-    .login-btn{
-      width: 100%;
-    }
-  }
-  
+<style lang="stylus" scoped>
+
+  .login-form
+    margin 180px auto
+    padding 30px
+    width 350px
+    background-color #F9FAFC
+    border-radius 5px
+    box-shadow 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02)
+    .title
+      margin-bottom 40px
+      text-align center
+      font-weight bold
+      font-size 20px
+    .memory-pass
+      margin-bottom 30px
+    .login-btn
+      width 100%
+      
 </style>

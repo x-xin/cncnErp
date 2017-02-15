@@ -6,7 +6,8 @@ var express = require('express'),
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/api/login', function (req, res) {
+/* login */ 
+app.post('/login', function (req, res) {
 
   if(req.body.username === "Roda" && req.body.password === "123456"){
     var data = {
@@ -23,9 +24,31 @@ app.post('/api/login', function (req, res) {
       msg: "账号或者密码错误"
     }
   }
-
-  res.send(JSON.stringify(data, null, 4));
-    
+  setTimeout(() => {
+    res.send(JSON.stringify(data, null, 4));
+  },800)   
 });
+
+/* table list */
+app.post('/table', function(req, res){
+
+  var Random = Mock.Random,
+      data   = Mock.mock({
+        'code': '@integer(0, 1)',
+        'data|15': [{
+          'id|+1': 1, 
+          'date': Random.date(),
+          'name': Random.name(),
+          'address': Random.county(true)
+        }]
+      });
+
+  setTimeout(() => {
+    res.send( JSON.stringify(data, null, 4) );
+  },800);
+
+}); 
+
+
 
 module.exports = app;

@@ -49,7 +49,7 @@ You'll see something like this:
 │   ├── assets/                                // 样式图片字体，可创建文件夹
 │   ├── components/                            // 组建，可创建文件夹
 │   ├── element-ui/                            // element-ui 组件
-│   ├── less/                                  // less 文件
+│   ├── stylus/                                // stylus 文件
 │   ├── pages/                                 // 页面，可创建文件夹
 │   ├── router/                                // vue-router
 │   ├── store/                                 // vuex

@@ -1,7 +1,7 @@
-import Home from '../pages/Home.vue'
-import Table from '../pages/Table.vue'
-import Form from '../pages/Form.vue'
-import Login from '../pages/Login.vue'
+import Home from 'pages/Home.vue'
+import Table from 'pages/Table.vue'
+import Form from 'pages/Form.vue'
+import Login from 'pages/Login.vue'
 
 const routers = [
   { path: '/', redirect: '/table' },

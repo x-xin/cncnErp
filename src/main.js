@@ -8,7 +8,7 @@ import './element-ui'
 import Router from './router'
 import Store from './store'
 
-import './less/style.less'
+import './stylus/style.styl'
 
 /* eslint-disable no-new */
 

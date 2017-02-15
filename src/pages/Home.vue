@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-  import CncnHeader from '../components/CncnHeader'
-  import CncnMenu from '../components/CncnMenu'
+  import CncnHeader from 'components/CncnHeader'
+  import CncnMenu from 'components/CncnMenu'
 
   export default {
     name: 'home',
@@ -21,6 +21,6 @@
     }
   }
 </script>
-<style lang="less">
-  //
+<style lang="stylus">
+
 </style>

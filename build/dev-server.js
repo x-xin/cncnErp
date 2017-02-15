@@ -35,7 +35,7 @@ compiler.plugin('compilation', function (compilation) {
 
 // mockData
 var mockData = require('./mock')
-app.use('/', mockData)
+app.use('/api', mockData)
 
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {

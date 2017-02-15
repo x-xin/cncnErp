@@ -9,7 +9,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <el-dropdown-item>设置</el-dropdown-item>
-          <el-dropdown-item>我的消息</el-dropdown-item>
+          <el-dropdown-item @click.native="alertMsg">我的消息</el-dropdown-item>
           <el-dropdown-item divided @click.native="loginout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -25,7 +25,7 @@
       }
     },
     methods: {
-      loginout(){
+      loginout() {
         this.$confirm("确认退出吗?","提示",{
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -35,6 +35,14 @@
           this.$router.replace('/login');
         }).catch(() => {
           console.log("取消退出");
+        });
+      },
+      alertMsg() {
+        this.$alert('这是一段消息内容', '我的消息', {
+          confirmButtonText: '确定',
+          callback: action => {
+            console.log(action)
+          }
         });
       }
     },
@@ -46,11 +54,9 @@
     }
   }
 </script>
-<style lang="less" scoped>
-  .logo{
-    margin-left: 20px;
-  }
-  .loginout{
-    color: #fff;
-  }
+<style lang="stylus" scoped>
+  .logo
+    margin-left 20px
+  .loginout
+    color #fff
 </style>

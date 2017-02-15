@@ -1,11 +1,24 @@
 import axios from 'axios';
 
 let base = '';
-
-export const requestLogin = params => { 
+// 登录
+const requestLogin = (params) => { 
 
   return axios
           .post(`${base}/api/login`, params)
           .then(res => res.data); 
 
 };
+// table list
+const requestTable = (params) => { 
+
+  return axios
+          .post(`${base}/api/table`, params)
+          .then(res => res.data);
+
+};
+
+export {
+  requestLogin,
+  requestTable
+}
