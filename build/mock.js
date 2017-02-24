@@ -9,8 +9,12 @@ app.use(bodyParser.json());
 /* login */ 
 app.post('/login', function (req, res) {
 
-  if(req.body.username === "Roda" && req.body.password === "123456"){
-    var data = {
+  var username = req.body.username,
+      password = req.body.password,
+      data = {};
+
+  if(username === "Roda" && password === "123456"){
+    data = {
       code: 1,
       msg: "成功",
       user: {
@@ -19,9 +23,31 @@ app.post('/login', function (req, res) {
       }
     }
   }else{
-    var data = {
+    data = {
       code: 0,
       msg: "账号或者密码错误"
+    }
+  }
+  setTimeout(() => {
+    res.send(JSON.stringify(data, null, 4));
+  },800)   
+});
+
+/* setPassword */ 
+app.post('/setPassword', function (req, res) {
+  var pass    = req.body.pass,
+      oldPass = req.body.oldPass,
+      data    = {};
+  if(oldPass === '123456'){
+    data = {
+      code: 1,
+      msg: "成功修改密码",
+      pass: pass
+    }
+  }else{
+    data = {
+      code: 0,
+      msg: "原始密码不对哦"
     }
   }
   setTimeout(() => {

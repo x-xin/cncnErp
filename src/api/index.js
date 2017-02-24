@@ -9,6 +9,13 @@ const requestLogin = (params) => {
           .then(res => res.data); 
 
 };
+
+const requestSetPassword = (params) => {
+  return axios
+          .post(`${base}/api/setPassword`, params)
+          .then(res => res.data);
+};
+
 // table list
 const requestTable = (params) => { 
 
@@ -20,5 +27,6 @@ const requestTable = (params) => {
 
 export {
   requestLogin,
-  requestTable
+  requestTable,
+  requestSetPassword
 }

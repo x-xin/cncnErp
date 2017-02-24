@@ -1,7 +1,7 @@
 <template>
   <el-row class="cncn-header">
-    <el-col :span="20"><div class="logo">CNCNERP@jingdian.com</div></el-col>
-    <el-col :span="4">
+    <el-col :span="21"><div class="logo">CncnAdmin</div></el-col>
+    <el-col :span="3">
       <el-dropdown trigger="click">
         <span class="el-dropdown-link loginout">
           {{ sysUserName }}

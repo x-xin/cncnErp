@@ -1,26 +1,13 @@
 <template>
   <el-row class="cncn-menu">
     <el-col :span="24">
-      <el-menu mode="vertical" default-active="1" class="el-menu-vertical-demo" theme="dark" router unique-opened>
-
-        <el-submenu index="1">
-          <template slot="title"><i class="el-icon-setting"></i>主要组件</template>
-          <el-menu-item index="table">Table</el-menu-item>
-          <el-menu-item index="form">form</el-menu-item>
-        </el-submenu>
-
-        <el-submenu index="2">
-          <template slot="title"><i class="el-icon-menu"></i>测试导航二</template>
-          <el-menu-item index="caidan3"></i>菜单三</el-menu-item>
-          <el-menu-item index="caidan4">菜单四</el-menu-item>
-        </el-submenu>
-
-        <el-submenu index="3">
-          <template slot="title"><i class="el-icon-message"></i>测试导航三</template>
-          <el-menu-item index="caidan5">菜单五</el-menu-item>
-          <el-menu-item index="caidan6">菜单六</el-menu-item>
-        </el-submenu>
-
+      <el-menu mode="vertical" :default-active="currentPath" class="menu" theme="dark" unique-opened router @open="handleOpen" @close="handleClose" @select="handleSelect">
+        <template v-for="(item,index) in menuItem" v-if="!item.hidden">
+          <el-submenu :index="index+''">
+            <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
+            <el-menu-item v-for="child in item.children" :index="child.path">{{ child.name }}</el-menu-item>
+          </el-submenu>
+        </template>
       </el-menu>
     </el-col>
   </el-row>
@@ -30,11 +17,37 @@
     name: 'menu',
     data () {
       return {
-        // 
+        currentPath: '/table'
       }
+    },
+    computed: {
+      menuItem () {
+        return this.$router.options.routes
+      }
+    },
+    watch: {
+      '$route' (to, from){
+        this.currentPath = to.path;
+      }
+    },
+    methods: {
+      handleSelect(key, keyPath) {
+        // console.log(key, keyPath);
+      },
+      handleOpen(key, keyPath) {
+        // console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        // console.log(key, keyPath);
+      }
+    },
+    mounted() {
+      console.log(this.menuItem);
+      this.currentPath = this.$route.path;
     }
   }
 </script>
 <style lang="stylus">
-  //
+  .menu
+    border-top 1px solid #42526d;
 </style>
