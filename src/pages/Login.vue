@@ -58,7 +58,7 @@
                 // 路由跳转
                 console.log(data.code);
                 sessionStorage.setItem('user', data.user.username);
-                this.$router.push({ path: '/table' });
+                this.$router.push({ path: '/desc' });
               }
             });
           }else{

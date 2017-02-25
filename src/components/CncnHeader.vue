@@ -1,6 +1,6 @@
 <template>
   <el-row class="cncn-header">
-    <el-col :span="21"><div class="logo">CncnAdmin</div></el-col>
+    <el-col :span="21"><div class="logo">AdminCenter</div></el-col>
     <el-col :span="3">
       <el-dropdown trigger="click">
         <span class="el-dropdown-link loginout">
@@ -56,7 +56,11 @@
 </script>
 <style lang="stylus" scoped>
   .logo
-    margin-left 20px
+    width 210px
+    padding-left 20px
+    font-size 30px
+    line-height 60px
+    font-weight 600
   .loginout
     color #fff
 </style>

@@ -10,6 +10,9 @@
         </template>
       </el-menu>
     </el-col>
+    <el-col :span="24" class="copy">
+      <a href="http://roda.wang/">©&nbsp;2017@Roda.Wang</a>
+    </el-col>
   </el-row>
 </template>
 <script>
@@ -17,7 +20,7 @@
     name: 'menu',
     data () {
       return {
-        currentPath: '/table'
+        currentPath: '/desc'
       }
     },
     computed: {
@@ -49,5 +52,23 @@
 </script>
 <style lang="stylus">
   .menu
-    border-top 1px solid #42526d;
+    border-top 1px solid #42526d
+  .copy
+    position absolute
+    bottom 61px
+    left 0px
+    height 50px
+    padding-left 20px
+    line-height 50px
+    font-size 12px
+    color #3b4659
+    border-top 1px solid #42526d
+    background-color #1f2d3d
+    a
+      display block
+      line-height 50px
+      color #3b4659
+      transition color .3s
+      &:hover
+        color #bfcbd9
 </style>
