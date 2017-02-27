@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-  import { requestTable } from '../api';
+  import { requestTable } from '../../api';
   export default {
     name: 'table',
     data () {
