@@ -5,7 +5,7 @@
         <template v-for="(item,index) in menuItem" v-if="!item.hidden">
           <el-submenu :index="index+''">
             <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
-            <el-menu-item v-for="child in item.children" :index="child.path">{{ child.name }}</el-menu-item>
+            <el-menu-item v-for="child in item.children" :index="child.path" @click="updateBreadcrumb(child.name)">{{ child.name }}</el-menu-item>
           </el-submenu>
         </template>
       </el-menu>
@@ -42,11 +42,18 @@
       },
       handleClose(key, keyPath) {
         // console.log(key, keyPath);
+      },
+      // mutations getCurrentMenuName
+      updateBreadcrumb(name){
+        this.$store.commit('getCurrentMenuName', name)
       }
+
     },
     mounted() {
-      console.log(this.menuItem);
-      this.currentPath = this.$route.path;
+      console.log(this.menuItem)
+      this.currentPath = this.$route.path
+      console.log(this.$route.name)
+      this.updateBreadcrumb(this.$route.name)
     }
   }
 </script>

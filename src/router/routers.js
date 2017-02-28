@@ -8,7 +8,6 @@ import Progress from 'pages/super/Progress.vue'
 import Steps from 'pages/super/Steps.vue'
 import Carousel from 'pages/super/Carousel.vue'
 import Collapse from 'pages/super/Collapse.vue'
-import Date from 'pages/super/Date.vue'
 
 import Slide from 'pages/base/Slide.vue'
 import Switch from 'pages/base/Switch.vue'
@@ -59,8 +58,7 @@ const routers = [
       { path: '/progress', component: Progress, name: '进度条' },
       { path: '/steps', component: Steps, name: '步骤条' },
       { path: '/carousel', component: Carousel, name: '走马灯' },
-      { path: '/collapse', component: Collapse, name: '折叠面板' },
-      { path: '/date', component: Date, name: '日期控件' }
+      { path: '/collapse', component: Collapse, name: '折叠面板' }
     ]
   },
   {

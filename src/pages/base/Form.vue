@@ -1,5 +1,6 @@
 <template>
   <div class="cncn-main">
+    <cncn-breadcrumb></cncn-breadcrumb>
     <div class="cncn-main-panel">
       <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item label="活动名称" prop="name">
@@ -53,8 +54,12 @@
   </div>
 </template>
 <script>
+  import CncnBreadcrumb from 'components/CncnBreadcrumb'
   export default {
     name:"form",
+    components: {
+      CncnBreadcrumb
+    },
     data() {
       return {
         ruleForm: {

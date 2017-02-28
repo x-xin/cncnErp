@@ -1,5 +1,6 @@
 <template>
   <div class="cncn-main">
+    <cncn-breadcrumb></cncn-breadcrumb>
     <div class="cncn-main-panel">
       <el-form :model="userPass" :rules="rules" ref="setPassword" label-width="100px" class="password-form">
 
@@ -25,9 +26,13 @@
   </div>
 </template>
 <script>
-import { requestSetPassword } from '../../api';
+  import { requestSetPassword } from '../../api'
+  import CncnBreadcrumb from 'components/CncnBreadcrumb'
   export default {
-    name: '',
+    name: 'setpassword',
+    components: {
+      CncnBreadcrumb
+    },
     data() {
       let validateOldPass = (rule, value, callback) => {
         if (value === '') {

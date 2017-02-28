@@ -1,5 +1,6 @@
 <template>
   <div class="cncn-main">
+    <cncn-breadcrumb></cncn-breadcrumb>
     <div class="cncn-main-panel">
       <el-table
         v-loading="loading"
@@ -35,9 +36,13 @@
   </div>
 </template>
 <script>
+  import CncnBreadcrumb from 'components/CncnBreadcrumb'
   import { requestTable } from '../../api';
   export default {
     name: 'table',
+    components: {
+      CncnBreadcrumb
+    },
     data () {
       return {
         tableData: [],
