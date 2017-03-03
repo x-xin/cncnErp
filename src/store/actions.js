@@ -1,18 +1,18 @@
 import { requestLogin } from '../api'
-import { ACCOUNT_MUTATION } from './types'
+import { ACCOUNT_MUTATION,LOADING_MUTATION } from './types'
 
 export default {
   postLogin({ commit, state }, {params, success, error}) {
-    state.isShowLoading = true
+    commit(LOADING_MUTATION, { isShowLoading: true})
     requestLogin(params)
       .then(res => {
-          commit(ACCOUNT_MUTATION, { account: res.data.user.username})
-          success && success(res)
-          state.isShowLoading = false
+        commit(ACCOUNT_MUTATION, { account: res.data.user.username})
+        success && success(res)
+        commit(LOADING_MUTATION, { isShowLoading: false})
       })
       .catch(res => {
-          error && error(res)
-          state.isShowLoading = false
+        error && error(res)
+        commit(LOADING_MUTATION, { isShowLoading: false})
       })
   }
 }
