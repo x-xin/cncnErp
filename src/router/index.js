@@ -9,8 +9,9 @@ const router = new VueRouter({
   routes: Routers
 });
 
+const user = sessionStorage.getItem('user');
+
 router.beforeEach((to, from, next) => {
-  let user = sessionStorage.getItem('user');
   if (!user && to.path != '/login') {
     next({ path: '/login' })
   }

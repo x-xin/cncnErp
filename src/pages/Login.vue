@@ -14,7 +14,8 @@
   </el-form>
 </template>
 <script>
-  import { requestLogin } from '../api';
+  // import { requestLogin } from '../api';
+  import { mapActions,mapGetters } from 'vuex'
   export default {
     name: 'login',
     data() {
@@ -32,11 +33,18 @@
             { required: true, message: '请输入密码', trigger: 'blur' }
           ]
         },
-        checked: true,
-        loading: false
+        checked: true
       }
     },
+    computed: {
+      ...mapGetters([
+        'loading','account'
+      ])
+    },
     methods: {
+      ...mapActions([
+        'postLogin'
+      ]),
       handleSubmit(){
         this.$refs.loginForm.validate((valid) => {
           if(valid){
@@ -44,23 +52,33 @@
               username: this.loginForm.account,
               password: this.loginForm.checkPass
             }
-            this.loading = true
-            requestLogin(loginParams).then(data => {
-              console.log(data);
-              this.loading = false
-              if(data.code !== 1){
-                this.$notify({
-                  title: '错误',
-                  message: data.msg,
-                  type: 'error'
-                });
-              }else{
-                // 路由跳转
-                console.log(data.code);
-                sessionStorage.setItem('user', data.user.username);
-                this.$router.push({ path: '/desc' });
+            
+            let _this = this
+            this.postLogin({
+
+              params: loginParams,
+
+              success(res) {
+                if(res.data.code !== 1){
+                  _this.$notify({
+                    title: '错误',
+                    message: res.data.msg,
+                    type: 'error'
+                  });
+                }else{
+                  // 路由跳转
+                  console.log(res.data.code);
+                  sessionStorage.setItem('user', _this.account);
+                  _this.$router.push({ path: '/desc' });
+                }
+
+              },
+              error(res) {
+                console.log(res);
               }
-            });
+
+            })
+
           }else{
             console.log('error submit!!');
             return false;
@@ -88,5 +106,4 @@
       margin-bottom 30px
     .login-btn
       width 100%
-      
 </style>

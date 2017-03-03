@@ -5,17 +5,18 @@
         <template v-for="(item,index) in menuItem" v-if="!item.hidden">
           <el-submenu :index="index+''">
             <template slot="title"><i :class="item.icon"></i>{{item.name}}</template>
-            <el-menu-item v-for="child in item.children" :index="child.path" @click="updateBreadcrumb(child.name)">{{ child.name }}</el-menu-item>
+            <el-menu-item v-for="child in item.children" :index="child.path" @click="updateBreadcrumb({currentName: child.name})">{{ child.name }}</el-menu-item>
           </el-submenu>
         </template>
       </el-menu>
     </el-col>
     <el-col :span="24" class="copy">
-      <a href="http://roda.wang/">©&nbsp;2017@Roda.Wang</a>
+      <a href="http://roda.wang/">{{ author }}</a>
     </el-col>
   </el-row>
 </template>
 <script>
+  import { mapGetters, mapMutations } from 'vuex'
   export default {
     name: 'menu',
     data () {
@@ -26,7 +27,10 @@
     computed: {
       menuItem () {
         return this.$router.options.routes
-      }
+      },
+      ...mapGetters([
+        'author'
+      ])
     },
     watch: {
       '$route' (to, from){
@@ -43,17 +47,18 @@
       handleClose(key, keyPath) {
         // console.log(key, keyPath);
       },
-      // mutations getCurrentMenuName
-      updateBreadcrumb(name){
-        this.$store.commit('getCurrentMenuName', name)
-      }
+      ...mapMutations({
+        updateBreadcrumb: 'NAME_MUTATION'
+      })
 
     },
     mounted() {
       console.log(this.menuItem)
       this.currentPath = this.$route.path
       console.log(this.$route.name)
-      this.updateBreadcrumb(this.$route.name)
+      this.updateBreadcrumb({
+        currentName: this.$route.name
+      })
     }
   }
 </script>

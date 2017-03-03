@@ -17,6 +17,9 @@
   </el-row>
 </template>
 <script>
+  import { mapMutations } from 'vuex'
+
+  const user = sessionStorage.getItem('user');
   export default {
     name: 'header',
     data () {
@@ -25,6 +28,12 @@
       }
     },
     methods: {
+      ...mapMutations([
+        'ACCOUNT_MUTATION'
+      ]),
+      ...mapMutations({
+        account: 'ACCOUNT_MUTATION'
+      }),
       loginout() {
         this.$confirm("确认退出吗?","提示",{
           confirmButtonText: '确定',
@@ -32,7 +41,12 @@
           type: 'warning'
         }).then(() => {
           sessionStorage.removeItem('user');
+
+          this.account({
+            account: ''
+          })
           this.$router.replace('/login');
+          
         }).catch(() => {
           console.log("取消退出");
         });
@@ -47,10 +61,10 @@
       }
     },
     mounted() {
-      let user = sessionStorage.getItem('user');
       if(user){
         this.sysUserName = user;
       }
+      console.log(this.$store.getters.author);
     }
   }
 </script>

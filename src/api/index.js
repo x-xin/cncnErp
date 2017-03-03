@@ -6,7 +6,7 @@ const requestLogin = (params) => {
 
   return axios
           .post(`${base}/api/login`, params)
-          .then(res => res.data); 
+          // .then(res => res.data); 
 
 };
 

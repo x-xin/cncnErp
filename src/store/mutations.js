@@ -1,5 +1,13 @@
+import {
+  NAME_MUTATION,
+  ACCOUNT_MUTATION
+} from './types'
+
 export default {
-  getCurrentMenuName(state,str) {
-    state.currentName = str
+  [NAME_MUTATION] (state, payload) {
+    state.currentName = payload.currentName
+  },
+  [ACCOUNT_MUTATION] (state, payload) {
+    state.account = payload.account
   }
 }
