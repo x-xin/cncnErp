@@ -36,15 +36,6 @@
           show-input>
         </el-slider>
       </div>
-      <div class="block">
-        <span class="demonstration">支持选择某一数值范围</span>
-        <el-slider
-          v-model="value7"
-          range
-          show-stops
-          :max="10">
-        </el-slider>
-      </div>
     </div>
   </div>
 
@@ -63,8 +54,7 @@
         value3: 42,
         value4: 0,
         value5: 0,
-        value6: 0,
-        value7: [4, 8]
+        value6: 0
       }
     }
   }
